@@ -8,6 +8,7 @@ AI-powered consulting frameworks and PM tools. Built by a former McKinsey consul
 
 ## Skills
 
+### Frameworks
 | Skill | What It Does | Best For |
 |-------|-------------|----------|
 | [SCPR Framework](scpr-framework/SKILL.md) | Structure arguments using Situation-Complication-Problem-Recommendation | Exec summaries, memos, strategic recs |
@@ -15,6 +16,12 @@ AI-powered consulting frameworks and PM tools. Built by a former McKinsey consul
 | [Storyline Builder](storyline-builder/SKILL.md) | Build slide narratives where each line = a slide title | Decks, pitch presentations, board updates |
 | [Prioritization](prioritization/SKILL.md) | Score features using RICE, Impact/Effort, Value/Complexity | Roadmap decisions, feature trade-offs |
 | [Data Insights](data-insights-simple/SKILL.md) | Analyze any dataset and answer 5 key questions in plain English | Quick analysis without being a data scientist |
+
+### Agents
+| Skill | What It Does | Best For |
+|-------|-------------|----------|
+| [McKinsey Critic](mckinsey-critic/SKILL.md) | Reviews decks and docs like a McKinsey engagement manager — grades, flags problems, gives top 3 fixes | Quality gate before anything goes to stakeholders |
+| [Deck Pipeline](deck-pipeline/SKILL.md) | 4-agent pipeline: Strategist → Builder → Critic → Fixer. Goes from topic to critique-proof deck. | Board decks, strategy presentations, any high-stakes slides |
 
 ---
 
