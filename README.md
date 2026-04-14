@@ -12,6 +12,7 @@ AI-powered consulting frameworks and PM tools. Built by a former McKinsey consul
 | Skill | What It Does | Best For |
 |-------|-------------|----------|
 | [SCPR Framework](scpr-framework/SKILL.md) | Structure arguments using Situation-Complication-Problem-Recommendation | Exec summaries, memos, strategic recs |
+| [Decision Memo Builder](decision-memo-builder/SKILL.md) | Draft a 1-page decision memo that forces a yes/no (context → options → rec → risks → ask) | Leadership decisions, scope cuts, buy/build calls |
 | [Issue Tree Builder](issue-tree-builder/SKILL.md) | Break down problems into MECE components | Analysis, case prep, work plans |
 | [Storyline Builder](storyline-builder/SKILL.md) | Build slide narratives where each line = a slide title | Decks, pitch presentations, board updates |
 | [Prioritization](prioritization/SKILL.md) | Score features using RICE, Impact/Effort, Value/Complexity | Roadmap decisions, feature trade-offs |
