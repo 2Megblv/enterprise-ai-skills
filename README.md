@@ -16,6 +16,7 @@ AI-powered consulting frameworks and PM tools. Built by a former McKinsey consul
 | [Issue Tree Builder](issue-tree-builder/SKILL.md) | Break down problems into MECE components | Analysis, case prep, work plans |
 | [Storyline Builder](storyline-builder/SKILL.md) | Build slide narratives where each line = a slide title | Decks, pitch presentations, board updates |
 | [Prioritization](prioritization/SKILL.md) | Score features using RICE, Impact/Effort, Value/Complexity | Roadmap decisions, feature trade-offs |
+| [Meeting Prep Kit](meeting-prep-kit/SKILL.md) | Generate pre-read + agenda + talking points + objections for any meeting where you're driving an outcome | Exec reviews, stakeholder pitches, scope negotiations |
 | [Data Insights](data-insights-simple/SKILL.md) | Analyze any dataset and answer 5 key questions in plain English | Quick analysis without being a data scientist |
 
 ### Agents
