@@ -4,6 +4,35 @@ AI-powered consulting frameworks and PM tools. Built by a former McKinsey consul
 
 **Who this is for:** PMs, consultants, strategists, and ops leaders who want to apply proven frameworks instantly — not write prompts from scratch.
 
+![Worked example: which sport should I pick up?](assets/hero.gif)
+
+> A 30-second walkthrough: take a real personal question (*"Which sport should I pick up?"*), run it top-down through 4 of the skills — **Issue Tree → Storyline → Charts → Deck Pipeline** — and out comes an 8-slide deck with native editable charts.
+>
+> Full worked example, including the prompts: [`examples/which-sport-to-pick-up/`](examples/which-sport-to-pick-up/).
+
+---
+
+## Try it in 30 seconds
+
+Open Claude (or any LLM with these skills loaded) and paste:
+
+```text
+Build me a McKinsey-style deck on a decision I'm weighing:
+"Which sport should I pick up: pickleball, tennis, or running?"
+
+Run the full top-down workflow:
+1. Use issue-tree-builder to decompose into MECE branches
+2. Use storyline-builder to turn it into 8 claim-shaped slide titles
+3. Use mckinsey-charts for the data slides (bar+callout, waterfall)
+4. Use deck-pipeline (strategist → builder → critic → fixer) to produce the final .pptx
+```
+
+You'll get the same arc as the GIF above, with a real `.pptx` you can open and edit. Swap the question for one you actually care about: *"Which side project should I commit to?", "Should I take the job?", "Where should we move?"* — same workflow, your decision.
+
+What one of the data slides looks like:
+
+![Hero chart preview](assets/hero-chart.png)
+
 ---
 
 ## Skills

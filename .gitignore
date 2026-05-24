@@ -7,3 +7,6 @@ __pycache__/
 
 # build artifacts from test scripts
 mckinsey-charts/test_output.pptx
+
+# GIF source frames — only the assembled hero.gif is tracked
+assets/_gif_frames/
