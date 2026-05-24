@@ -56,17 +56,23 @@ Topic
 - Maintains consistent formatting and tone throughout
 - Ensures each slide has a clear "so what"
 
-**Output:** A complete deck (either as formatted text, markdown, or .pptx via python-pptx) with:
+**Output:** A complete deck as a native `.pptx` (via python-pptx) with editable text and editable charts. Optional: markdown or formatted text as an intermediate artifact for review.
+
 - Claim-based titles on every slide
 - Data points with sources where available
 - Visual structure suggestions (tables, callout boxes, charts)
 - Section transitions between narrative blocks
+
+**Tools the Builder uses:**
+- **[mckinsey-charts](../mckinsey-charts/SKILL.md)** for native editable charts — bar+callout for single-number stories, stacked column for mix over time, waterfall for bridges. The audience can right-click → Edit Data inside PowerPoint. Use this instead of pasting chart images.
+- **python-pptx** for native text, tables, and layout. No screenshots, no image-based content — everything stays editable.
 
 **Tips for the Builder:**
 - Stat callout boxes work well for key numbers (large font, contrasting color)
 - Comparison tables > bullet lists when presenting options
 - Keep body text to 3-5 points per slide maximum
 - Every data slide needs at least one source
+- Every quantitative slide uses a chart from `mckinsey-charts`, not a screenshot
 
 ---
 
@@ -183,6 +189,16 @@ Step 4: "Now act as the fixer. Apply the top 3 fixes."
 - Product launch proposals
 - Market entry analysis
 - Any deck that needs to survive tough questions
+
+## What replaced the old Gamma path
+
+Earlier versions of this repo paired the storyline with the Gamma API to generate finished decks. The current version uses **native python-pptx + the [mckinsey-charts](../mckinsey-charts/SKILL.md) skill** instead. Reasons:
+
+- **Editable, not generated.** Charts are real PowerPoint chart objects, not images. The audience can change colors, edit data, copy to their own deck.
+- **No third-party dependency.** No Gamma account, no API key, no per-deck credit cost.
+- **Better defaults.** Single highlight color, no gridlines, claim-shaped titles — already wired into mckinsey-charts. The Gamma path required prompt-engineering the look every time.
+
+The `gamma-automation/` folder is preserved for reference but is deprecated.
 
 ## Why a Pipeline Instead of One Prompt
 
