@@ -411,15 +411,16 @@ def scene_outro():
 # ----------------------------------------------------------------------
 # Assemble GIF
 # ----------------------------------------------------------------------
-# Per-scene durations in SECONDS. Slow enough to read; total ~33s.
+# Per-scene durations in SECONDS. Punchy pacing; total ~24s.
+# (Deep reading lives in the storyboard.png — GIF is the trailer.)
 SCENES = [
-    (scene_title,                3.5),
-    (scene_issue_tree,           6.0),
-    (scene_storyline,            6.5),
-    (scene_chart_competence,     5.0),
-    (scene_chart_cost,           5.0),
-    (scene_deck_recommendation,  5.0),
-    (scene_outro,                3.0),
+    (scene_title,                2.5),
+    (scene_issue_tree,           4.0),
+    (scene_storyline,            4.5),
+    (scene_chart_competence,     3.5),
+    (scene_chart_cost,           3.5),
+    (scene_deck_recommendation,  4.0),
+    (scene_outro,                2.5),
 ]
 
 
