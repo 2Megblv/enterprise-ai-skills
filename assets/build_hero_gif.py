@@ -13,7 +13,6 @@ Usage:
 
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
-import imageio.v2 as imageio
 
 # ----------------------------------------------------------------------
 # Canvas + palette (matches mckinsey-charts conventions)
@@ -412,12 +411,13 @@ def scene_outro():
 # ----------------------------------------------------------------------
 # Assemble GIF
 # ----------------------------------------------------------------------
+# Per-scene durations in SECONDS. Slow enough to read; total ~33s.
 SCENES = [
-    (scene_title,                3.0),
-    (scene_issue_tree,           5.0),
-    (scene_storyline,            5.0),
-    (scene_chart_competence,     4.5),
-    (scene_chart_cost,           4.5),
+    (scene_title,                3.5),
+    (scene_issue_tree,           6.0),
+    (scene_storyline,            6.5),
+    (scene_chart_competence,     5.0),
+    (scene_chart_cost,           5.0),
     (scene_deck_recommendation,  5.0),
     (scene_outro,                3.0),
 ]
@@ -429,31 +429,35 @@ def build_gif():
     frames_dir.mkdir(exist_ok=True)
 
     frames = []
-    durations = []
-    for i, (renderer, duration) in enumerate(SCENES):
+    durations_ms = []
+    for i, (renderer, duration_s) in enumerate(SCENES):
         img = renderer()
-        # Save as PNG too — useful for the README static fallback
+        # Save as PNG too — useful for the README static fallback / debugging
         png_path = frames_dir / f"scene_{i:02d}.png"
         img.save(png_path, "PNG", optimize=True)
         # Downsize for GIF (smaller file)
-        gif_img = img.resize((960, 540), Image.LANCZOS)
+        gif_img = img.resize((960, 540), Image.LANCZOS).convert("P", palette=Image.ADAPTIVE, colors=128)
         frames.append(gif_img)
-        durations.append(duration)
+        durations_ms.append(int(duration_s * 1000))
 
     # Save the hero chart still for use as a fallback image / inline embed
     hero_still = scene_chart_competence()
     hero_still.save(out_dir / "hero-chart.png", "PNG", optimize=True)
 
     gif_path = out_dir / "hero.gif"
-    # imageio expects per-frame durations
-    imageio.mimsave(
+    # Pillow writes GIF directly. duration is per-frame in MILLISECONDS.
+    # disposal=2 clears the previous frame so we don't get ghosting between scenes.
+    frames[0].save(
         gif_path,
-        frames,
-        duration=durations,
+        save_all=True,
+        append_images=frames[1:],
+        duration=durations_ms,
         loop=0,
-        subrectangles=True,
+        optimize=True,
+        disposal=2,
     )
-    print(f"Wrote {gif_path}  ({gif_path.stat().st_size // 1024} KB, {len(frames)} scenes)")
+    print(f"Wrote {gif_path}  ({gif_path.stat().st_size // 1024} KB, {len(frames)} scenes, "
+          f"total {sum(durations_ms) / 1000:.1f}s)")
     print(f"Wrote {out_dir / 'hero-chart.png'}  ({(out_dir / 'hero-chart.png').stat().st_size // 1024} KB)")
 
 
