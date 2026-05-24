@@ -1,14 +1,14 @@
 # Enterprise AI Skills
 
-AI-powered consulting frameworks and PM tools. Built by a former McKinsey consultant, now shipping AI workflows that actually work.
-
-**Who this is for:** PMs, consultants, strategists, and ops leaders who want to apply proven frameworks instantly — not write prompts from scratch.
+**13 consulting frameworks from a former McKinsey consultant, packaged as drop-in Claude skills.** Issue trees, decision memos, McKinsey-style charts, full deck pipelines — the stuff strategists, PMs, and ops leaders run anyway, now executable in one prompt.
 
 ![Worked example: which sport should I pick up?](assets/hero.gif)
 
 > A 30-second walkthrough: take a real personal question (*"Which sport should I pick up?"*), run it top-down through 4 of the skills — **Issue Tree → Storyline → Charts → Deck Pipeline** — and out comes an 8-slide deck with native editable charts.
 >
 > Full worked example, including the prompts: [`examples/which-sport-to-pick-up/`](examples/which-sport-to-pick-up/).
+
+**Latest update (May 2026):** added Synthesis, Hypothesis Tree, Stakeholder Map, Top-Down Memo, and Workshop Designer; replaced the Gamma-based deck path with native python-pptx + editable charts.
 
 ---
 
@@ -32,6 +32,20 @@ You'll get the same arc as the GIF above, with a real `.pptx` you can open and e
 What one of the data slides looks like:
 
 ![Hero chart preview](assets/hero-chart.png)
+
+---
+
+## Install
+
+- **Claude Code:** clone this repo — skills auto-load when you work in the directory.
+- **Claude.ai:** download the `.skill` file for any skill → Settings → Skills → Add Skill.
+- **Any LLM:** copy the contents of `SKILL.md` into your conversation as context.
+
+```bash
+git clone https://github.com/sruthir28/enterprise-ai-skills.git
+```
+
+No dependencies beyond Claude itself. The deck pipeline (`deck-pipeline` + `mckinsey-charts`) requires Python 3.9+ and `python-pptx` if you want to generate `.pptx` files locally — see [`examples/which-sport-to-pick-up/build.py`](examples/which-sport-to-pick-up/build.py).
 
 ---
 
@@ -83,36 +97,30 @@ Native, editable PowerPoint — no Gamma, no images.
 
 ---
 
-## Quick Start
-
-**Claude Code:** Clone this repo, skills auto-load when you work in the directory.
-
-**Claude.ai:** Download the `.skill` file → Settings → Skills → Add Skill.
-
-**Any LLM:** Copy the `SKILL.md` content into your conversation as context.
-
----
-
 ## How the skills compose
 
-Most real work uses 2–3 of these together:
+Most real work uses 2–3 of these together. Some common stacks:
 
 - **Customer research → memo:** Synthesis → Top-Down Memo (or Decision Memo) → McKinsey Critic
-- **Strategic question → recommendation:** Issue Tree → Hypothesis Tree → run tests → Decision Memo
+- **Strategic question → recommendation:** Issue Tree → Hypothesis Tree → run the tests → Decision Memo
 - **Big decision with politics:** Stakeholder Map → Decision Memo → Meeting Prep Kit (for each 1:1)
-- **Board deck:** Storyline Builder → Deck Pipeline (uses McKinsey Charts) → McKinsey Critic
-- **Offsite or alignment workshop:** Workshop Designer → Meeting Prep Kit (for pre-1:1s) → workshop runs → Top-Down Memo (post-send)
+- **Board deck (the GIF above):** Issue Tree → Storyline Builder → Charts → Deck Pipeline → McKinsey Critic
+- **Offsite or alignment workshop:** Workshop Designer → Meeting Prep Kit (pre-1:1s) → workshop runs → Top-Down Memo (post-send)
 
 ---
 
-## Want these adapted for you or your team?
+## What this is, and isn't
 
-If you need domain-specific versions, custom workflows, or help rolling out AI across your org — reach out.
+**Is:** a library of 13 prompts-with-structure that turn a fuzzy strategic ask into a decision-shaped artifact. Each skill encodes a specific consulting move (MECE decomposition, Day-1 hypothesis, pyramid principle, etc.) so Claude doesn't reinvent the structure every time.
 
-sru281+build@gmail.com
+**Isn't:** a chatbot, a UI, or generic "AI for work" prompts. There's no model fine-tuning. The skills work because the structure is right, not because the model is special.
 
 ---
 
-MIT License — use freely, modify, share.
+## Need this adapted for your team?
 
-[LinkedIn](https://www.linkedin.com/in/sruthichintakunta/) | Built with Claude
+Domain-specific versions, custom workflows, AI rollouts — reach out: [sru281+build@gmail.com](mailto:sru281+build@gmail.com).
+
+---
+
+MIT licensed. Built by [Sruthi Chintakunta](https://www.linkedin.com/in/sruthichintakunta/).
