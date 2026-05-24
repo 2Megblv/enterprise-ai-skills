@@ -8,6 +8,13 @@
 >
 > Full worked example, including the prompts: [`examples/which-sport-to-pick-up/`](examples/which-sport-to-pick-up/).
 
+<details>
+<summary>📖  <b>Prefer to scan at your own pace?</b> Open the storyboard (no autoplay).</summary>
+
+![Storyboard: scroll through each frame at your own pace](assets/storyboard.png)
+
+</details>
+
 **Latest update (May 2026):** added Synthesis, Hypothesis Tree, Stakeholder Map, Top-Down Memo, and Workshop Designer; replaced the Gamma-based deck path with native python-pptx + editable charts.
 
 ---

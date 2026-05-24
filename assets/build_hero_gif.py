@@ -460,6 +460,25 @@ def build_gif():
           f"total {sum(durations_ms) / 1000:.1f}s)")
     print(f"Wrote {out_dir / 'hero-chart.png'}  ({(out_dir / 'hero-chart.png').stat().st_size // 1024} KB)")
 
+    # ----------------------------------------------------------------
+    # Static storyboard — all scenes stitched vertically as one PNG.
+    # GIFs can't pause; this is the "pause button" — scroll at your own pace.
+    # ----------------------------------------------------------------
+    sb_frame_w, sb_frame_h = 900, 506  # 16:9 at a readable size
+    sb_sep = 24                         # spacing between frames
+    sb_pad = 20                         # outer padding
+    n = len(SCENES)
+    sb_h = 2 * sb_pad + n * sb_frame_h + (n - 1) * sb_sep
+    sb_w = 2 * sb_pad + sb_frame_w
+    storyboard = Image.new("RGB", (sb_w, sb_h), (245, 246, 248))  # light grey backdrop
+    for i, (renderer, _) in enumerate(SCENES):
+        img = renderer().resize((sb_frame_w, sb_frame_h), Image.LANCZOS)
+        y = sb_pad + i * (sb_frame_h + sb_sep)
+        storyboard.paste(img, (sb_pad, y))
+    sb_path = out_dir / "storyboard.png"
+    storyboard.save(sb_path, "PNG", optimize=True)
+    print(f"Wrote {sb_path}  ({sb_path.stat().st_size // 1024} KB, {n} frames stacked)")
+
 
 if __name__ == "__main__":
     build_gif()
